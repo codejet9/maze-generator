@@ -8,12 +8,12 @@ import html2canvas from 'html2canvas';
 const App = () => {
 
   const [changeGrid, setChangeGrid] = useState(false);
-  const [rows, setRows] = useState(5);
-  const [cols, setCols] = useState(5);
+  const [rows, setRows] = useState(20);
+  const [cols, setCols] = useState(20);
 
   const handleGridChange = (n,m) => {
     setRows(n); setCols(m);
-    setChangeGrid(!changeGrid);
+    if(!changeGrid) setChangeGrid(!changeGrid);
   }
 
   const handleMazeDownload = async () => {

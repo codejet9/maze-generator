@@ -2,8 +2,8 @@ import { useState, useSyncExternalStore } from "react";
 
 const Controls = ({handleGridChange}) => {
 
-  const [rows, setRows] = useState(5);
-  const [cols, setCols] = useState(5);
+  const [rows, setRows] = useState(20);
+  const [cols, setCols] = useState(20);
 
   const handleRowsChange = (event) => {
     var r = event.target.value;
@@ -27,12 +27,12 @@ const Controls = ({handleGridChange}) => {
       <div className="flex flex-row flex-wrap gap-3 mb-4">
         <div>
           <label htmlFor="rows" className="block mb-2 text-sm font-bold text-gray-900">Rows</label>
-          <input onChange={handleRowsChange} type="number" max={100} id="rows" defaultValue={5} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+          <input onChange={handleRowsChange} type="number" max={100} id="rows" defaultValue={20} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
         </div>
 
         <div>
           <label htmlFor="cols" className="block mb-2 text-sm font-bold text-gray-900">Colums</label>
-          <input onChange={handleColsChange} type="number" max={100} id="cols" defaultValue={5} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+          <input onChange={handleColsChange} type="number" max={100} id="cols" defaultValue={20} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
         </div>
       </div>
 
