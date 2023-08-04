@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/maze-generator/static/css/main.76361668.css",
+    "main.js": "/maze-generator/static/js/main.c447d2bb.js",
+    "index.html": "/maze-generator/index.html",
+    "main.76361668.css.map": "/maze-generator/static/css/main.76361668.css.map",
+    "main.c447d2bb.js.map": "/maze-generator/static/js/main.c447d2bb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.76361668.css",
+    "static/js/main.c447d2bb.js"
+  ]
+}
