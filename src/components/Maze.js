@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import randomizedPrim from "../algo/randomizedPrim";
+import bfs from "../algo/bfs";
+import dfsSol from "../algo/dfs";
 
 const createInitialMatrix = (rows, cols) => {
   const matrix = [];
-  const initialCell = ['gray', '2px', '2px', '2px', '2px'];
   for (let i = 0; i < rows; i++) {
     const row = [];
     for(let j=0;j<cols;j++){
-      const borderLeft = (j==0) ? '2px' : '1px';
-      const borderRight = (j==cols-1) ? '2px' : '1px';
-      const borderTop = (i==0) ? '2px' : '1px';
-      const borderBottom = (i==rows-1) ? '2px' : '1px';
+      const borderLeft = (j===0) ? '2px' : '1px';
+      const borderRight = (j===cols-1) ? '2px' : '1px';
+      const borderTop = (i===0) ? '2px' : '1px';
+      const borderBottom = (i===rows-1) ? '2px' : '1px';
       
       row.push(['gray',borderLeft,borderRight,borderTop,borderBottom])
     }
@@ -22,18 +23,24 @@ const createInitialMatrix = (rows, cols) => {
 
 
 
-const Maze = ({rows,cols, changeGrid}) => {
+const Maze = ({rows,cols, changeGrid, showSol}) => {
   rows=parseInt(rows); cols=parseInt(cols);
 
   const [matrix, setMatrix] = useState(createInitialMatrix(rows,cols));
 
   useEffect(() => {
+    if(showSol){
+      var updatedMatrix = bfs(rows,cols,matrix);
+      setMatrix(updatedMatrix)
+      return;
+    }
+
     if(changeGrid){
       var newMatrix = createInitialMatrix(rows,cols);
       var updatedMatrix = randomizedPrim(rows,cols,newMatrix);
       setMatrix(updatedMatrix)
     }
-  },[rows,cols,changeGrid])
+  },[rows,cols,changeGrid,showSol])
 
 
 

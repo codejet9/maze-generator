@@ -39,7 +39,6 @@ const neighbours = (x,y,n,m,vis) => {
 
 
 const passage = (cur, inCell, position, matrix) => {
-  console.log(cur,inCell)
   if(position==='top'){
     //cur remove top border, inCell remove bottom border
     matrix[cur[0]][cur[1]][3] = '0px';
