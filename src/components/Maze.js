@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import randomizedPrim from "../algo/randomizedPrim";
+import randomizedKruskal from "../algo/randomizedKruskal";
 import bfs from "../algo/bfs";
 import dfsSol from "../algo/dfs";
 
@@ -23,7 +24,7 @@ const createInitialMatrix = (rows, cols) => {
 
 
 
-const Maze = ({rows,cols, changeGrid, showSol}) => {
+const Maze = ({rows,cols, changeGrid, showSol, algoType}) => {
   rows=parseInt(rows); cols=parseInt(cols);
 
   const [matrix, setMatrix] = useState(createInitialMatrix(rows,cols));
@@ -37,10 +38,10 @@ const Maze = ({rows,cols, changeGrid, showSol}) => {
 
     if(changeGrid){
       var newMatrix = createInitialMatrix(rows,cols);
-      var updatedMatrix = randomizedPrim(rows,cols,newMatrix);
+      var updatedMatrix = (algoType==='prims') ? randomizedPrim(rows,cols,newMatrix) : randomizedKruskal(rows,cols,newMatrix);
       setMatrix(updatedMatrix)
     }
-  },[rows,cols,changeGrid,showSol])
+  },[rows,cols,changeGrid,showSol,algoType])
 
 
 
